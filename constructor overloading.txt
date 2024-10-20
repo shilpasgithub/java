@@ -1,0 +1,51 @@
+class Rectangle {
+    private double length;
+    private double width;
+
+    // Constructor with no parameters
+    public Rectangle() {
+        this.length = 1.0; // Default length
+        this.width = 1.0;  // Default width
+    }
+
+    // Constructor with one parameter
+    public Rectangle(double side) {
+        this.length = side; // Square shape
+        this.width = side;
+    }
+
+    // Constructor with two parameters
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Method to calculate area
+    public double area() {
+        return length * width;
+    }
+
+    // Method to display dimensions
+    public void display() {
+        System.out.println("Length: " + length + ", Width: " + width);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Using constructor with no parameters
+        Rectangle rect1 = new Rectangle();
+        rect1.display();
+        System.out.println("Area: " + rect1.area());
+
+        // Using constructor with one parameter
+        Rectangle rect2 = new Rectangle(5);
+        rect2.display();
+        System.out.println("Area: " + rect2.area());
+
+        // Using constructor with two parameters
+        Rectangle rect3 = new Rectangle(4, 6);
+        rect3.display();
+        System.out.println("Area: " + rect3.area());
+    }
+}

@@ -1,0 +1,70 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<String> treeSet = new TreeSet<>();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Add Element");
+            System.out.println("2. Remove Element");
+            System.out.println("3. Check if Element Exists");
+            System.out.println("4. Display Elements");
+            System.out.println("5. Clear Set");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter element to add: ");
+                    String elementToAdd = scanner.nextLine();
+                    treeSet.add(elementToAdd);
+                    System.out.println("Added: " + elementToAdd);
+                    break;
+
+                case 2:
+                    System.out.print("Enter element to remove: ");
+                    String elementToRemove = scanner.nextLine();
+                    if (treeSet.remove(elementToRemove)) {
+                        System.out.println("Removed: " + elementToRemove);
+                    } else {
+                        System.out.println("Element not found.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter element to check: ");
+                    String elementToCheck = scanner.nextLine();
+                    if (treeSet.contains(elementToCheck)) {
+                        System.out.println("Element exists: " + elementToCheck);
+                    } else {
+                        System.out.println("Element does not exist.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("TreeSet Elements: " + treeSet);
+                    break;
+
+                case 5:
+                    treeSet.clear();
+                    System.out.println("TreeSet cleared.");
+                    break;
+
+                case 6:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 6);
+
+        scanner.close();
+    }
+}

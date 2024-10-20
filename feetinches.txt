@@ -1,0 +1,41 @@
+class Distance {
+    private int feet;
+    private int inches;
+
+    // Constructor
+    public Distance(int feet, int inches) {
+        this.feet = feet + inches / 12; // Convert inches to feet
+        this.inches = inches % 12; // Remaining inches
+    }
+
+    // Method to add two Distance objects
+    public Distance add(Distance other) {
+        int totalFeet = this.feet + other.feet;
+        int totalInches = this.inches + other.inches;
+
+        // Convert total inches to feet if greater than 12
+        totalFeet += totalInches / 12;
+        totalInches = totalInches % 12;
+
+        return new Distance(totalFeet, totalInches);
+    }
+
+    // Method to display distance
+    public void display() {
+        System.out.println(feet + " feet " + inches + " inches");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Distance distance1 = new Distance(5, 9); // 5 feet 9 inches
+        Distance distance2 = new Distance(3, 11); // 3 feet 11 inches
+
+        // Add two distances
+        Distance totalDistance = distance1.add(distance2);
+
+        // Display the result
+        System.out.print("Total Distance: ");
+        totalDistance.display();
+    }
+}

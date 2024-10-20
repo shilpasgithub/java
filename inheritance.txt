@@ -1,0 +1,28 @@
+// Base class
+class Animal {
+    // Method in the base class
+    public void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+// Derived class
+class Dog extends Animal {
+    // Method in the derived class
+    public void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of the Dog class
+        Dog myDog = new Dog();
+
+        // Call the method from the base class
+        myDog.eat(); // Inherited method from Animal
+
+        // Call the method from the Dog class
+        myDog.bark(); // Method specific to Dog
+    }
+}

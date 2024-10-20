@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class DecimalConverter {
+
+    // Recursive function to convert decimal to binary
+    public static String decimalToBinary(int n) {
+        if (n == 0) {
+            return "";
+        }
+        return decimalToBinary(n / 2) + (n % 2);
+    }
+
+    // Recursive function to convert decimal to octal
+    public static String decimalToOctal(int n) {
+        if (n == 0) {
+            return "";
+        }
+        return decimalToOctal(n / 8) + (n % 8);
+    }
+
+    // Recursive function to convert decimal to hexadecimal
+    public static String decimalToHexadecimal(int n) {
+        if (n == 0) {
+            return "";
+        }
+        int remainder = n % 16;
+        char hexChar;
+        if (remainder < 10) {
+            hexChar = (char) ('0' + remainder);
+        } else {
+            hexChar = (char) ('A' + (remainder - 10));
+        }
+        return decimalToHexadecimal(n / 16) + hexChar;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        int decimalNumber = scanner.nextInt();
+
+        // Handle the case for zero explicitly
+        if (decimalNumber == 0) {
+            System.out.println("Binary: 0");
+            System.out.println("Octal: 0");
+            System.out.println("Hexadecimal: 0");
+        } else {
+            System.out.println("Binary: " + decimalToBinary(decimalNumber));
+            System.out.println("Octal: " + decimalToOctal(decimalNumber));
+            System.out.println("Hexadecimal: " + decimalToHexadecimal(decimalNumber));
+        }
+
+        scanner.close();
+    }
+}
